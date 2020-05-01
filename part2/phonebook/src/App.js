@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
+import Filter from './components/Filter'
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
+      <Filter personsList={persons} />
 
       <h2>Add New Contacts</h2>
       <PersonForm personsList={persons} setPersonsList={setPersons}/>
