@@ -1,5 +1,4 @@
 import React from 'react'
-import Filter from './Filter'
 
 const Persons = ({ personsList }) => {
   return (
