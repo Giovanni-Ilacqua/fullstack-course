@@ -9,11 +9,6 @@ const Persons = ({ personsList, setPersonsList}) => {
       personsService
       .deletePerson(id)
         .then(setPersonsList(personsList.filter(p => p.id !== id)))
-      // personsService
-      // .deletePerson(id)
-      //   .then(() => {
-      //     setPersonsList(personsList.filter(p => p.id !== id))
-      //   })
     }
   }
   

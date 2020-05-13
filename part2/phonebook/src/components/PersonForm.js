@@ -14,7 +14,15 @@ const PersonForm = ({ personsList, setPersonsList }) => {
     if (personsList.some(person => person.name === personObject.name) ||
       personsList.some(person => person.number === personObject.number)
     ) {
-      alert(`${newName} ${newNumber} is already added to phonebook`)
+      let id = personsList.filter( obj => obj.name === personObject.name)[0].id
+      if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)){
+        personsService
+          .update(id, personObject)
+            .then(returnedPerson => {
+              setPersonsList(personsList.map(p => p.id !== id ? p : returnedPerson ))
+            })
+      }
+
     } else {
       personsService
         .create(personObject)
