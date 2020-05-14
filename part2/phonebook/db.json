@@ -21,34 +21,14 @@
       "id": 4
     },
     {
-      "name": "Test",
-      "number": "009987666",
-      "id": 5
-    },
-    {
       "name": "Vlad",
       "number": "122311346",
       "id": 6
     },
     {
-      "name": "Ira",
-      "number": "12345678",
+      "name": "Test",
+      "number": "232",
       "id": 7
-    },
-    {
-      "name": "John",
-      "number": "089755",
-      "id": 8
-    },
-    {
-      "name": "Joe",
-      "number": "565678",
-      "id": 9
-    },
-    {
-      "name": "Jay",
-      "number": "9998",
-      "id": 10
     }
   ]
 }

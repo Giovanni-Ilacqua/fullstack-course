@@ -9,6 +9,7 @@ import personsService from './services/persons'
 const App = () => {
   const [persons, setPersons] = useState([])
   const [message, setMessage] = useState(null)
+  const [messageStyle, setStyle] = useState('success')
 
   useEffect(() =>{
     personsService
@@ -22,15 +23,15 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <Notification notificationMessage={message}/>
-
+      <Notification notificationMessage={message} notificationStyle={messageStyle}/>
+      
       {/* <Filter personsList={persons} /> */}
 
       <h2>Add New Contacts</h2>
-      <PersonForm personsList={persons} setPersonsList={setPersons} setMessage = {setMessage}/>
+      <PersonForm personsList={persons} setPersonsList={setPersons} setMessage={setMessage} setStyle={setStyle}/>
 
       <h2>Numbers</h2>
-      <Persons personsList={persons} setPersonsList={setPersons}/>
+      <Persons personsList={persons} setPersonsList={setPersons} setMessage={setMessage} setStyle={setStyle}/>
 
     </div>
   )
