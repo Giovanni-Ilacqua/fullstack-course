@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 
-const Filter = ({ newSearch, setNewSearch}) => {
-    
-    const handleSearchChange = (event) => {
-        setNewSearch(event.target.value)
-    }
+const Filter = ({ newSearch, searchHandler }) => {
  
     return (
         <div>
-            Filter shown with <input value={newSearch} onChange={handleSearchChange} />
-
+            Filter shown with <input value={newSearch} onChange={searchHandler} />
         </div>
     )
 }
