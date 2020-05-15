@@ -7,6 +7,7 @@ const Notification = ({ notificationMessage, notificationStyle }) => {
         backgroundColor: 'lightgreen',
         fontSize: '18px',
         border: '2px solid green',
+        margin: '10px',
         display: 'inline-block'
     }
 
@@ -17,6 +18,7 @@ const Notification = ({ notificationMessage, notificationStyle }) => {
         backgroundColor: 'lightgrey',
         fontSize: '18px',
         border: '2px solid red',
+        margin: '10px',
         display: 'inline-block'
     }
     

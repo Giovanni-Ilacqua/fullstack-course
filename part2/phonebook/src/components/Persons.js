@@ -1,13 +1,20 @@
 import React from 'react'
 import personsService from '../services/persons'
 
-const Persons = ({ personsList, setPersonsList, setMessage, setStyle}) => {
-  
+const Persons = ({ personsList, setPersonsList, searchTerm, setMessage, setStyle }) => {
+
+  const filterContacts = (contact) => {
+    if (contact.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return true
+    }
+    return false
+  }
+
   const deletePerson = (id) => {
-    const p = personsList.find(n => n.id === id)  
+    const p = personsList.find(n => n.id === id)
     if (window.confirm(`Delete ${p.name}?`)) {
       personsService
-      .deletePerson(id)
+        .deletePerson(id)
         .then(setPersonsList(personsList.filter(p => p.id !== id)))
         .catch(error => {
           setMessage(
@@ -19,17 +26,19 @@ const Persons = ({ personsList, setPersonsList, setMessage, setStyle}) => {
           }, 5000)
         })
     }
-    
   }
-  
+
   return (
     <div>
+
       <ul>
-        {personsList.map(person =>
-          <li key={person.name}>{person.name} {person.number} &nbsp;
-            <button onClick={() => deletePerson(person.id)}>delete</button>
-          </li>)}
+        {personsList.filter(filterContacts).map(filteredName => (
+          <li key={filteredName.name}>{filteredName.name} {filteredName.number} &nbsp;
+            <button onClick={() => deletePerson(filteredName.id)}>delete</button>
+          </li>
+        ))}
       </ul>
+
     </div>
   )
 }
